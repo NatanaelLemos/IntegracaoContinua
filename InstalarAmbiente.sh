@@ -6,6 +6,7 @@ echo "************************************************************" ;
 
 sudo apt-get install curl openssh-server ca-certificates postfix build-essential apt-transport-https software-properties-common git -y ;
 
+echo ;
 echo "************************************************************" ;
 echo ******************Adicionando repositórios****************** ;
 echo "************************************************************" ;
@@ -19,12 +20,14 @@ sudo apt-key fingerprint 0EBFCD88 ;
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" ;
 sudo apt-get update ;
 
+echo ;
 echo "************************************************************" ;
 echo *********************Instalando pacotes********************* ;
 echo "************************************************************" ;
 
 sudo apt-get install gitlab-ce=8.16.6-ce.0 nodejs docker-ce jenkins -y ;
 
+echo ;
 echo "************************************************************" ;
 echo *************Configurações Adicionais do GitLab************* ;
 echo "************************************************************" ;
@@ -36,22 +39,31 @@ sudo npm install ;
 
 cd ;
 
-sudo gitlab-ctl reconfigure ;
 sudo gitlab-ctl restart ;
+sudo gitlab-ctl reconfigure ;
 
+echo ;
 echo "************************************************************" ;
 echo **Para terminar, você terá que configurar algo manualmente** ;
 echo "************************************************************" ;
 
 echo ***Pare o serviço do GitLab com o seguinte comando:
 echo sudo gitlab-ctl stop
+echo ;
 echo ***Edite o seguinte arquivo:
 echo /etc/gitlab/gitlab.rb
+echo ;
 echo ***Edite somente as linhas abaixo '('descomente se for necessário')':
+echo "external_url 'http://[[o nome da sua maquina]]:8181'"
 echo "unicorn['port'] = 8081"
 echo "gitlab_workhorse['auth_backend']" = '"http://localhost:8181"'
 echo ***Feito isso, salve e feche o arquivo
-echo ***Agora reconfigure o GitLab através do seguinte comando:
-echo sudo gitlab-ctl reconfigure ;
+echo ;
 echo ***E reinicie o serviço do GitLab:
 echo sudo gitlab-ctl restart ;
+echo ;
+echo ***Agora reconfigure o GitLab através do seguinte comando:
+echo sudo gitlab-ctl reconfigure ;
+echo ;
+echo ;
+echo O Jenkins estará na porta 8080 e o GitLab na porta 8181
