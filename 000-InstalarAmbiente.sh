@@ -18,6 +18,8 @@ echo 'deb https://pkg.jenkins.io/debian binary/' | sudo tee --append /etc/apt/so
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - ;
 sudo apt-key fingerprint 0EBFCD88 ;
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" ;
+sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list' ;
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893 ;
 sudo apt-get update ;
 
 echo ;
@@ -25,7 +27,9 @@ echo "************************************************************" ;
 echo *********************Instalando pacotes********************* ;
 echo "************************************************************" ;
 
-sudo apt-get install gitlab-ce=8.16.6-ce.0 nodejs docker-ce jenkins -y ;
+sudo apt-get install gitlab-ce=8.16.6-ce.0 nodejs docker-ce jenkins dotnet-dev-1.0.4 -y ;
+
+sudo apt-mark hold gitlab-ce ;
 
 echo ;
 echo "************************************************************" ;
