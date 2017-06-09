@@ -29,6 +29,7 @@ echo "************************************************************" ;
 
 sudo apt-get install gitlab-ce=8.16.6-ce.0 nodejs docker-ce jenkins dotnet-dev-1.0.4 -y ;
 
+# Não atualizar para a nova versão do GitLab. Está quebrada!!!
 sudo apt-mark hold gitlab-ce ;
 
 echo ;
