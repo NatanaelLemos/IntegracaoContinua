@@ -27,25 +27,7 @@ echo "************************************************************" ;
 echo *********************Instalando pacotes********************* ;
 echo "************************************************************" ;
 
-sudo apt-get install gitlab-ce=8.16.6-ce.0 nodejs docker-ce jenkins dotnet-dev-1.0.4 -y ;
-
-# Não atualizar para a nova versão do GitLab. Está quebrada!!!
-sudo apt-mark hold gitlab-ce ;
-
-echo ;
-echo "************************************************************" ;
-echo *************Configurações Adicionais do GitLab************* ;
-echo "************************************************************" ;
-
-sudo gitlab-ctl stop ;
-
-cd /opt/gitlab/embedded/service/gitlab-rails ;
-sudo npm install ;
-
-cd ;
-
-sudo gitlab-ctl restart ;
-sudo gitlab-ctl reconfigure ;
+sudo apt-get install nodejs docker-ce jenkins dotnet-dev-1.0.4 -y ;
 
 echo ;
 echo "************************************************************" ;
@@ -60,7 +42,8 @@ echo /etc/gitlab/gitlab.rb
 echo ;
 echo ***Edite somente as linhas abaixo '('descomente se for necessário')':
 echo "external_url 'http://[[o nome da sua maquina]]:8181'"
-echo "unicorn['port'] = 8081"
+#echo "unicorn['port'] = 8081"
+echo nginx['enable'] = false
 echo "gitlab_workhorse['auth_backend']" = '"http://localhost:8181"'
 echo ***Feito isso, salve e feche o arquivo
 echo ;
