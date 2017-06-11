@@ -14,7 +14,7 @@
 
 #### Rodar o script de instalação dos programas necessários:
 
-&nbsp;&nbsp;&nbsp;[Instalar Ambiente](./InstalarAmbiente.sh)
+&nbsp;&nbsp;&nbsp;[Instalar Ambiente](./001-InstalarAmbiente.sh)
 
 &nbsp;&nbsp;&nbsp;Esse script irá instalar todos os programas necessários para seguir o tutorial:
 
