@@ -33,3 +33,7 @@
 #### Criado o projeto, siga para o passo 3:
 
 &nbsp;&nbsp;&nbsp;[Projeto](./003-Projeto/README.md)
+
+#### Com o projeto criado, siga para o passo 4, que irá guiá-lo na criação do projeto no Jenkins:
+
+&nbsp;&nbsp;&nbsp;[Projeto](./004-Configuração Jenkins/README.md)
