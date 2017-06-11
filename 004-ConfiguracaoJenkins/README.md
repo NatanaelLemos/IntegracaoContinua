@@ -49,15 +49,17 @@ Feito isso, vamos configurar os "Build Triggers":
 
 Adicione um "Build Step" em "Build" e selecione "Execute Shell". Dentro de "Command", cole os comandos abaixo:
 ```shell
-docker stop $(docker ps -a -q)
-docker rm $(docker ps -a -q)
-
 cd src
 dotnet restore
 dotnet publish -c Release -o out
 
-docker build -t dotnetapp .
-docker run -d -p 5000:5000 dotnetapp
+app="dotnetapp"
+docker build -t $app .
+if docker ps | awk -v app="$app" 'NR > 1 && $NF == app{ret=1; exit} END{exit !ret}'; then
+  docker stop "$app"
+fi
+
+docker run --rm -d -p 5000:5000 --name $app $app
 ```
 Mas antes, se você ainda não deu permissões para seu usuário rodar comandos do docker, você terá que executar os comandos abaixo:
 ```shell
