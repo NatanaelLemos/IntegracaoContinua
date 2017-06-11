@@ -49,7 +49,11 @@ Feito isso, vamos configurar os "Build Triggers":
 
 Adicione um "Build Step" em "Build" e selecione "Execute Shell". Dentro de "Command", cole os comandos abaixo:
 ```shell
-cd src
+cd test
+dotnet restore
+dotnet test
+
+cd ../src
 dotnet restore
 dotnet publish -c Release -o out
 
