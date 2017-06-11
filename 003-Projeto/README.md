@@ -64,6 +64,27 @@ dotnet test
 
 *Nesse momento, o teste deve ter passado.
 
+
+*Novamente em src, crie um arquivo chamado dockerfile e nele, escreva os seguintes comandos:
+```docker
+FROM microsoft/dotnet
+WORKDIR /dotnetapp
+COPY out .
+ENTRYPOINT ["dotnet", "testJenkins.dll"]
+```
+![dockerfile](./res/004.png  "dockerfile")
+
+
+*No Program.cs, adicione a seguinte linha no WebHostBuilder:
+
+```.net
+.UseUrls("http://0.0.0.0:5000")
+```
+![localhost](./res/005.png  "localhost")
+
+
+
+
 *Feito isso, vamos subir as mudanças para o GitLab:
 ``` shell
 cd ~/testJenkins
