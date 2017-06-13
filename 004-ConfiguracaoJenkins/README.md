@@ -63,6 +63,7 @@ if docker ps | awk -v app="$app" 'NR > 1 && $NF == app{ret=1; exit} END{exit !re
   docker stop "$app"
 fi
 
+docker build -t dotnetapp .
 docker run --rm -d -p 5000:5000 --name $app $app
 ```
 Mas antes, se você ainda não deu permissões para seu usuário rodar comandos do docker, você terá que executar os comandos abaixo:
