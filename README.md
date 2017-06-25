@@ -2,7 +2,7 @@
 
 ### Apresentação
 
-[Apresentação](./000-Apresentação/Techday.pptx) 
+&nbsp;&nbsp;&nbsp;[Apresentação](./000-Apresentação/Techday.pptx?raw=true) 
 
 
 
