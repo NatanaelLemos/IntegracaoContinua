@@ -2,9 +2,8 @@
 
 ### Apresentação
 
-[Apresentação](./000-Apresentação/README.md) 
+[Apresentação](./000-Apresentação/Techday.pptx) 
 
---TODO: Alterar o caminho da apresentação
 
 
 
